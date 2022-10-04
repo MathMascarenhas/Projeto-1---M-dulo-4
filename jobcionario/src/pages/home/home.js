@@ -1,3 +1,4 @@
+import { Header } from "../../header/header";
 import { Card } from "../../components/card/card";
 import { api } from "../../utils/api/api";
 import { useState, useEffect } from "react";
@@ -6,6 +7,8 @@ import "./home.css";
 
 const customStyles = {
   content: {
+    display: "flex",
+    flexDirection: "column",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -17,11 +20,7 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export function Home() {
-  const [wordList, setWordList] = useState([{
-    word: "swdjoid",
-    translation: "dnkendc",
-    definition: "jfej"
-  }]);
+  const [wordList, setWordList] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uniqueWord, setUniqueWord] = useState({});
 
@@ -29,28 +28,32 @@ export function Home() {
     setModalIsOpen(!modalIsOpen);
   }
 
-  async function getAllWords() {
+  async function getAll() {
     const words = await api.getAllWords();
     setWordList(words);
   }
+
   useEffect(() => {
-    getAllWords();
+    getAll();
   }, []);
 
   return (
     <>
+      <Header getAll={getAll} />
       <div className="card-list">
         {wordList.map((item, index) => {
           return (
-            <button
-              className="btn-card"
-              onClick={() => {
-                setUniqueWord(item);
-                handleModal();
-              }}
-            >
-              <Card key={index} word={item.word} />
-            </button>
+            <div className="div-card">
+              <button
+                className="btn-card"
+                onClick={() => {
+                  setUniqueWord(item);
+                  handleModal();
+                }}
+              >
+                <Card key={index} word={item.word} />
+              </button>
+            </div>
           );
         })}
       </div>
@@ -61,11 +64,12 @@ export function Home() {
         contentLabel="Card information"
       >
         <section>
-          <h2>{uniqueWord.word}</h2>
-          <article>
-            <h3>{uniqueWord.translation}</h3>
-            <h4>{uniqueWord.definition}</h4>
-          </article>
+          <section className="article">
+            <h2 className="head-modal">{uniqueWord.word}</h2>
+
+            <h3 className="subhead-modal"> - {uniqueWord.translation}</h3>
+          </section>
+          <h4 className="info-modal">{uniqueWord.definition}</h4>
         </section>
       </Modal>
     </>

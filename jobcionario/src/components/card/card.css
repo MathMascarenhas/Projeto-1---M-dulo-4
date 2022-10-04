@@ -1,0 +1,7 @@
+.card-title{
+    background: linear-gradient(90deg, rgba(8,73,194,1) 0%, rgba(87,9,121,1) 51%, rgba(184,28,211,1) 84%, rgba(0,174,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 2rem;
+}

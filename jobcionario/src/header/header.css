@@ -1,0 +1,37 @@
+.header-home {
+    display: flex;
+    width: 100%;
+    box-shadow: 5px rgba(0, 0, 0, 0.767);
+    background-color: whitesmoke;
+    justify-content: space-between;
+    align-items: center;
+    height: 8%;
+    padding: 0.5rem;
+}
+
+.logo-section {
+display: flex;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}
+
+h1{
+background: linear-gradient(90deg, rgba(8,73,194,1) 0%, rgba(87,9,121,1) 51%, rgba(184,28,211,1) 84%, rgba(0,174,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 300;
+}
+
+.modal-btn{
+  border: none;
+  border-radius: 32px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgb(8,73,194);
+  background: linear-gradient(90deg, rgba(8,73,194,1) 0%, rgba(87,9,121,1) 51%, rgba(184,28,211,1) 84%, rgba(0,174,255,1) 100%);
+  padding: 0.5rem;  
+}

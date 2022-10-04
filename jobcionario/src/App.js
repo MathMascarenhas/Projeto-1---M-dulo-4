@@ -1,9 +1,7 @@
-import { Home } from "./pages/home/home"
-import { Header } from "./header/header";
+import { Home } from "./pages/home/home";
 export function App() {
   return (
     <>
-      <Header/>
       <Home/>
     </>
   );

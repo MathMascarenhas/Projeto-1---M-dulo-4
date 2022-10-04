@@ -1,4 +1,3 @@
-import { GrFormAdd } from "react-icons/gr";
 import { useState } from "react";
 import { Form } from "../components/form/form";
 import "./header.css";
@@ -11,16 +10,17 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    width: "40%",
-    height: "50%",
+    width: "25%",
+    height: "30%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: " rgba(0, 0, 0, 0.8)",
+    backgroundColor: " rgba(224, 224, 224, 0.8)",
     borderRadius: "15px",
+    borderStyle: "none",
   }
 };
 
 Modal.setAppElement("#root");
-export function Header() {
+export function Header({ getAll}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function handleModal() {
@@ -31,12 +31,12 @@ export function Header() {
     <>
       <header className="header-home">
         <section className="logo-section">
-            <img src="../../public/dictionary.png" alt="logo jobcionário"></img>
+            <img src="./dictionary.png" alt="logo jobcionário"></img>
           <h1 >JobCionário</h1>
         </section>
         <section>
-          <button className="modal-button" onClick={handleModal}>
-            <GrFormAdd size={26} /> Adicionar Palavra
+          <button className="modal-btn" onClick={handleModal}>
+           Adicionar Palavra
           </button>
         </section>
       </header>
@@ -46,8 +46,7 @@ export function Header() {
         style={customStyles}
         contentLabel="Create Form"
       >
-        <h2>Preencha os Campos</h2>
-        <Form handleModal={handleModal} />
+        <Form handleModal={handleModal} getAll={getAll}/>
       </Modal>
     </>
   );
