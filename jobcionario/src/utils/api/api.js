@@ -2,7 +2,7 @@ const defaultUrl = "https://jobcionario.herokuapp.com";
 
 export const api = {
   createWord: async (word) => {
-    const response = await fetch(defaultUrl + "/words/", {
+    const response = await fetch(defaultUrl + "/words", {
       method: "POST",
       headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify(word),
