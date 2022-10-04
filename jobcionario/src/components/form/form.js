@@ -1,9 +1,7 @@
 import "./form.css";
 import { api } from "../../utils/api/api";
-import { useState } from "react";
 
 export function Form({ handleModal, getAll }) {
-  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -12,10 +10,8 @@ export function Form({ handleModal, getAll }) {
       translation: event.target.translation.value,
       definition: event.target.definition.value,
     };
-    setLoading(true);
     await api.createWord(word);
     await getAll();
-    setLoading(false);
     handleModal();
   }
 
