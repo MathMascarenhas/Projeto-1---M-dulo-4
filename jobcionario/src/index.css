@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+    background-color: rgb(190, 190, 190);
+}
